@@ -30,12 +30,12 @@ export default function Sidebar({ activeItem = 0, onItemClick }: SidebarProps) {
     return (
         <div
             className={`bg-[#D9D9D9] border-r border-gray-100 fixed top-[70px] left-0 bottom-0 transition-all duration-300 ease-in-out ${expanded ? "w-[250px]" : "w-[60px]"
-                } z-10 shadow-lg`}
+                } z-10`}
         >
             <div className="flex items-center justify-center h-16 border-b border-gray-200">
                 {!expanded ? (
                     <button
-                        className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                        className="p-2 hover:bg-gray-100 rounded-lg transition-colors cursor-pointer"
                         onClick={() => setExpanded(true)}
                     >
                         <Image
@@ -51,7 +51,7 @@ export default function Sidebar({ activeItem = 0, onItemClick }: SidebarProps) {
                     <div className="flex items-center justify-between w-full px-4">
                         <span className="font-semibold text-gray-800">Menu</span>
                         <button
-                            className="p-1 hover:bg-gray-100 rounded transition-colors"
+                            className="p-1 hover:bg-gray-100 rounded transition-colors cursor-pointer"
                             onClick={() => setExpanded(false)}
                         >
                             <Image

@@ -1,6 +1,13 @@
 "use client";
 import { useState } from "react";
-import UpdateRegistryForm, { Registry } from "./UpdateRegistryForm";
+import { UpdateRegistryForm } from "@/components";
+
+export interface Registry {
+    name: string;
+    id: string;
+    date: string;
+    action: string;
+}
 
 const myRegistries: Registry[] = [
     { name: "My Healthcare Registry", id: "12938475639", date: "15/08/2025", action: "Update" },
@@ -23,7 +30,7 @@ export default function RegistriesPage() {
                 <h1 className="text-xl font-bold text-gray-800">My Registries</h1>
             </div>
 
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div className="bg-white rounded-lg overflow-hidden border border-black/20">
                 <div className="overflow-x-auto px-4">
                     <table className="w-full text-left border-collapse table-fixed">
                         <thead className="text-gray-700 border-b-3 border-gray-200">

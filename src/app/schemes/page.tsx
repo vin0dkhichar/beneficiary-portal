@@ -26,20 +26,17 @@ export default function SchemePage() {
 
     return (
         <div className="p-6 min-h-screen bg-gray-50">
-            {/* Page Title */}
             <h1 className="text-2xl font-bold text-black mb-6">
                 Potential Applicable Schemes
             </h1>
 
-            {/* Scheme Section */}
-            <div className="bg-white rounded-lg shadow-lg p-6">
+            <div className="bg-white rounded-lg p-6 border border-black/20">
                 <h2 className="text-xl text-black font-semibold mb-2">
                     OpenG2P Social Safety Net Program
                 </h2>
                 <div className="border-b-3 border-gray-300 mb-6"></div>
 
                 <div className="flex flex-col md:flex-row gap-6">
-                    {/* Left: Description (2/3 width) */}
                     <div className="md:w-2/3 text-gray-700">
                         <p className="mb-2">
                             It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
@@ -58,8 +55,7 @@ export default function SchemePage() {
                         </p>
                     </div>
 
-                    {/* Right: Apply Form (1/3 width) */}
-                    <div className="md:w-1/3 bg-[#D9D9D9] p-4 rounded-lg shadow-inner">
+                    <div className="md:w-1/3 bg-[#D9D9D9] p-4 rounded-lg">
                         <h3 className="text-lg text-black font-semibold mb-4 ml-2">Apply Now</h3>
                         <div className="space-y-3 m-2">
                             <input

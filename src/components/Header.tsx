@@ -8,8 +8,7 @@ export default function Header() {
     };
 
     return (
-        <header className="w-full bg-[#D9D9D9] shadow-md flex items-center justify-between px-6 py-3 fixed top-0 left-0 right-0 z-20 h-[70px]">
-            {/* Logo + Title */}
+        <header className="w-full bg-[#D9D9D9] flex items-center justify-between px-6 py-3 fixed top-0 left-0 right-0 z-20 h-[70px] border-b border-gray-300">
             <div className="flex items-center gap-3">
                 <Image
                     src="/header.png"
@@ -22,9 +21,7 @@ export default function Header() {
                 </span>
             </div>
 
-            {/* Right side */}
             <div className="flex items-center gap-4">
-                {/* Notification Icon */}
                 <button className="relative">
                     <Image
                         src="/notification.png"
@@ -34,7 +31,6 @@ export default function Header() {
                     />
                 </button>
 
-                {/* Profile name + image */}
                 <div className="flex items-center gap-2">
                     <span className="text-gray-700 font-medium">
                         Hi, {profile?.given_name || "User"}

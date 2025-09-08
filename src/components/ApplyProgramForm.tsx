@@ -1,4 +1,6 @@
 "use client";
+import Image from "next/image";
+
 type ProgramStatus = "Apply" | "Applied" | "Pending" | "Enrolled";
 
 interface Program {
@@ -7,6 +9,7 @@ interface Program {
     id: string;
     appliedDate: string;
 }
+
 interface ApplyProgramFormProps {
     program: Program;
     onClose: () => void;
@@ -15,19 +18,23 @@ interface ApplyProgramFormProps {
 export default function ApplyProgramForm({ program, onClose }: ApplyProgramFormProps) {
     return (
         <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50">
-            <div className="bg-white rounded-lg shadow-xl w-[800px] h-[600px] p-8 relative opacity-100">
-                {/* Header */}
+            <div className="bg-white rounded-lg w-[800px] h-[600px] p-8 relative opacity-100">
                 <div className="flex justify-between items-center mb-6">
                     <h2 className="text-xl font-bold text-gray-800">Apply Program</h2>
                     <button
-                        className="text-gray-500 hover:text-gray-700 text-2xl cursor-pointer"
                         onClick={onClose}
+                        className="cursor-pointer"
                     >
-                        ✕
+                        <Image
+                            src="/x.png"
+                            alt="Close"
+                            width={20}
+                            height={20}
+                            priority
+                        />
                     </button>
                 </div>
 
-                {/* Form Fields */}
                 <div className="space-y-5">
                     <div>
                         <label className="block text-sm font-medium text-gray-700">
@@ -37,7 +44,7 @@ export default function ApplyProgramForm({ program, onClose }: ApplyProgramFormP
                             type="text"
                             value={program.name}
                             disabled
-                            className="mt-1 block w-full text-black rounded-md shadow-sm bg-[#D9D9D9] p-2"
+                            className="mt-1 block w-full text-black rounded-md bg-[#D9D9D9] p-2"
                         />
                     </div>
                     <div>
@@ -46,7 +53,7 @@ export default function ApplyProgramForm({ program, onClose }: ApplyProgramFormP
                         </label>
                         <input
                             type="text"
-                            className="mt-1 block w-full text-black rounded-md shadow-sm bg-[#D9D9D9] p-2"
+                            className="mt-1 block w-full text-black rounded-md bg-[#D9D9D9] p-2"
                         />
                     </div>
                     <div>
@@ -55,7 +62,7 @@ export default function ApplyProgramForm({ program, onClose }: ApplyProgramFormP
                         </label>
                         <input
                             type="text"
-                            className="mt-1 block w-full text-black rounded-md shadow-sm bg-[#D9D9D9] p-2"
+                            className="mt-1 block w-full text-black rounded-md bg-[#D9D9D9] p-2"
                         />
                     </div>
                     <div>
@@ -64,12 +71,10 @@ export default function ApplyProgramForm({ program, onClose }: ApplyProgramFormP
                         </label>
                         <input
                             type="date"
-                            className="mt-1 block w-full text-black rounded-md shadow-sm bg-[#D9D9D9] p-2"
+                            className="mt-1 block w-full text-black rounded-md bg-[#D9D9D9] p-2"
                         />
                     </div>
                 </div>
-
-                {/* Footer */}
                 <div className="flex justify-start gap-4 mt-8">
                     <button
                         onClick={onClose}
@@ -87,3 +92,4 @@ export default function ApplyProgramForm({ program, onClose }: ApplyProgramFormP
         </div>
     );
 }
+

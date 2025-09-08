@@ -4,10 +4,6 @@ import { useEffect, useState } from "react";
 import { useAuth } from "@/context/global";
 import { prefixBaseApiPath } from "@/utils/path";
 
-// On client side directly call this function. Example:
-// AuthUtil({failedRedirectUrl: "/home"});
-// On server side render this element. Example:
-// <AuthUtil failedRedirectUrl="/home" />
 export function AuthUtil(params: { successRedirectUrl?: string; failedRedirectUrl?: string }) {
     const auth = useAuth();
     const { push } = useRouter();
@@ -19,33 +15,28 @@ export function AuthUtil(params: { successRedirectUrl?: string; failedRedirectUr
             const res = await fetch(prefixBaseApiPath("/auth/profile"));
             if (res.ok) {
                 const resJson = await res.json();
-                auth.setProfile(resJson); // Update profile in context
+                auth.setProfile(resJson);
             } else {
-                auth.setProfile(null); // Set profile to null if not authenticated
+                auth.setProfile(null);
             }
         } catch (err) {
             console.error("Error checking authentication:", err);
         } finally {
             setIsCheckingAuth(false);
-            setHasCheckedAuth(true); // Set the flag after the first check
+            setHasCheckedAuth(true);
         }
     };
 
     useEffect(() => {
-        // Initial check on component mount
         checkAuth();
 
-        // Periodic check every 1 minutes (adjust as needed)
         const intervalId = setInterval(checkAuth, 1 * 60 * 1000);
 
-        return () => clearInterval(intervalId); // Cleanup on unmount
-        // TODO: Fix this
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+        return () => clearInterval(intervalId);
     }, []);
 
-    // Redirect based on authentication status
     useEffect(() => {
-        if (isCheckingAuth || !hasCheckedAuth) return; // Redirect only after initial check
+        if (isCheckingAuth || !hasCheckedAuth) return;
 
         if (params.successRedirectUrl && auth.profile) {
             push(params.successRedirectUrl);

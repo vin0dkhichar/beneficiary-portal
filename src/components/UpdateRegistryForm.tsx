@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 
 export interface Registry {
     name: string;
@@ -30,18 +31,22 @@ export default function UpdateRegistryForm({ registry, onClose }: UpdateRegistry
     return (
         <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50">
             <div className="bg-white rounded-lg shadow-xl w-[600px] p-8 relative opacity-100">
-                {/* Header */}
                 <div className="flex justify-between items-center mb-6">
                     <h2 className="text-xl font-bold text-gray-800">Update Registry</h2>
                     <button
-                        className="text-gray-500 hover:text-gray-700 text-2xl cursor-pointer"
                         onClick={onClose}
+                        className="cursor-pointer"
                     >
-                        ✕
+                        <Image
+                            src="/x.png"
+                            alt="Close"
+                            width={20}
+                            height={20}
+                            priority
+                        />
                     </button>
                 </div>
 
-                {/* Form Fields */}
                 <div className="space-y-4">
                     <div>
                         <label className="block text-sm font-medium text-gray-700">Program Name</label>
@@ -81,7 +86,6 @@ export default function UpdateRegistryForm({ registry, onClose }: UpdateRegistry
                     </div>
                 </div>
 
-                {/* Footer */}
                 <div className="flex justify-start gap-4 mt-6">
                     <button
                         onClick={onClose}

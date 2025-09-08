@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { SyntheticEvent } from "react";
-import LoginProviders from "./LoginProviders";
+import { LoginProviders } from "@/components";
 
 export default function LoginForm() {
     function handleSubmit(e: SyntheticEvent) {
