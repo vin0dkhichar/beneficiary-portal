@@ -44,9 +44,8 @@ export default function HomePage() {
 
             <button
                 onClick={handleGetStarted}
-                className="w-[200px] h-[40px] bg-black text-white text-xl
-              font-semibold rounded-md shadow
-              hover:opacity-80 transition flex items-center justify-center"
+                className="w-[200px] h-[40px] bg-black text-white text-xl font-semibold rounded-md shadow 
+                           transition hover:bg-gray-950 flex items-center justify-center cursor-pointer"
             >
                 GET STARTED
             </button>

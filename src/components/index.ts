@@ -10,6 +10,10 @@ import LoginProviders from "./LoginProviders";
 import LoginForm from "./LoginForm";
 import UpdateRegistryForm from "./UpdateRegistryForm";
 import CommonLayout from "./CommonLayout";
+import Error from "./Error";
+import Loading from "./Loading";
+import GetFaBox from "./GetFaBox";
+import UpdateFaBox from "./UpdateFaBox";
 
 export {
     Header,
@@ -23,5 +27,9 @@ export {
     LoginProviders,
     LoginForm,
     UpdateRegistryForm,
-    CommonLayout
+    CommonLayout,
+    Error,
+    Loading,
+    GetFaBox,
+    UpdateFaBox
 };
