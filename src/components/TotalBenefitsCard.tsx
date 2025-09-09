@@ -16,7 +16,7 @@ export default function TotalBenefitsCard({ totalAmount, receivedAmount, link }:
                 Total Benefit Amount
             </h3>
 
-            <div className="border-b-3 border-gray-300 mb-3 sm:mb-4"></div>
+            <div className="border-b-4 border-gray-300 mb-3 sm:mb-4"></div>
 
             <div className="text-2xl sm:text-3xl font-bold text-black mb-1 sm:mb-2">
                 {receivedAmount.toLocaleString()} $

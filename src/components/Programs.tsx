@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { ApplyProgramForm, Pagination } from "@/components";
 
-
 type ProgramStatus = "Apply" | "Applied" | "Pending" | "Enrolled";
 
 interface Program {
@@ -33,7 +32,6 @@ const programsData: Program[] = [
     { name: "Women Empowerment Program", status: "Enrolled", id: "1717171717", appliedDate: "2025-07-17 05:00 PM" },
 ];
 
-
 export default function Programs({ preview = false }: { preview?: boolean }) {
     const [openForm, setOpenForm] = useState(false);
     const [selectedProgram, setSelectedProgram] = useState<Program | null>(null);
@@ -43,7 +41,7 @@ export default function Programs({ preview = false }: { preview?: boolean }) {
     const enrolled = programsData.filter((p) => p.status === "Enrolled").length;
 
     const [currentPage, setCurrentPage] = useState(1);
-    const itemsPerPage = preview ? 5 : 8;
+    const itemsPerPage = preview ? 6 : 8;
     const totalPages = Math.ceil(programsData.length / itemsPerPage);
 
     const displayedPrograms = programsData.slice(
@@ -69,37 +67,18 @@ export default function Programs({ preview = false }: { preview?: boolean }) {
                     </span>
                 );
             case "Applied":
-                return (
-                    <span className={`${baseClasses} text-gray-500`}>
-                        Applied
-                    </span>
-                );
+                return <span className={`${baseClasses} text-gray-500`}>Applied</span>;
             case "Enrolled":
-                return (
-                    <span className={`${baseClasses} text-gray-500`}>
-                        Enrolled
-                    </span>
-                );
+                return <span className={`${baseClasses} text-gray-500`}>Enrolled</span>;
             case "Pending":
-                return (
-                    <span className={`${baseClasses} text-gray-500`}>
-                        Pending
-                    </span>
-                );
+                return <span className={`${baseClasses} text-gray-500`}>Pending</span>;
             default:
-                return (
-                    <span className={`${baseClasses} text-gray-500`}>
-                        Unknown
-                    </span>
-                );
+                return <span className={`${baseClasses} text-gray-500`}>Unknown</span>;
         }
     };
 
-
-    // const displayedPrograms = preview ? programsData.slice(0, 5) : programsData;
-
     return (
-        <>
+        <div className="bg-white rounded-xl p-4 sm:p-6 border border-black/20 transition-shadow duration-300">
             <div className="overflow-x-auto">
                 <table className="w-full text-left border-collapse table-fixed">
                     <colgroup>
@@ -109,40 +88,54 @@ export default function Programs({ preview = false }: { preview?: boolean }) {
                         <col style={{ width: "16.67%" }} />
                     </colgroup>
 
-                    <thead className="border-b-3 border-gray-300">
+                    <thead className="border-b-4 border-gray-300">
                         <tr>
-                            <th className="px-6 py-3 text-base font-semibold text-gray-800 text-left">
+                            <th className="py-2 text-xl font-semibold text-gray-800 text-left">
                                 My Programs
                             </th>
-                            <th className="px-6 py-3 text-gray-600 font-normal text-left">
-                                Total Programs: <span className="font-bold text-black">{total}</span>
+                            <th className="py-2 text-gray-600 font-normal text-left">
+                                Total Programs:{" "}
+                                <span className="font-bold text-black">{total}</span>
                             </th>
-                            <th className="px-6 py-3 text-gray-600 font-normal text-left">
-                                Applied: <span className="font-bold text-black">{applied}</span>
+                            <th className="py-2 text-gray-600 font-normal text-left">
+                                Applied:{" "}
+                                <span className="font-bold text-black">{applied}</span>
                             </th>
-                            <th className="px-6 py-3 text-gray-600 font-normal text-left">
-                                Enrolled: <span className="font-bold text-black">{enrolled}</span>
+                            <th className="py-2 text-gray-600 font-normal text-left">
+                                Enrolled:{" "}
+                                <span className="font-bold text-black">{enrolled}</span>
                             </th>
                         </tr>
                     </thead>
 
-                    <thead className="text-gray-700 border-b border-gray-200">
+                    <thead className="text-gray-700 border-b-3 border-gray-200">
                         <tr>
-                            <th className="px-6 py-3 text-sm font-semibold">Program Name</th>
-                            <th className="px-6 py-3 text-sm font-semibold">Application Status</th>
-                            <th className="px-6 py-3 text-sm font-semibold">Application ID</th>
-                            <th className="px-6 py-3 text-sm font-semibold">Applied Date</th>
+                            <th className="py-3 text-sm font-semibold">Program Name</th>
+                            <th className="py-3 text-sm font-semibold">Application Status</th>
+                            <th className="py-3 text-sm font-semibold">Application ID</th>
+                            <th className="py-3 text-sm font-semibold">Applied Date</th>
                         </tr>
                     </thead>
 
-                    <tbody className="divide-y divide-gray-200">
+                    <tbody>
                         {displayedPrograms.map((program, index) => (
-                            <tr key={index} className="hover:bg-gray-50 transition-colors duration-150">
-                                <td className="px-6 py-4 text-gray-900 font-medium">{program.name}</td>
-                                <td className="px-4 py-4 ">{getStatusBadge(program.status, program)}</td>
-                                <td className="px-6 py-4 font-mono text-gray-700 text-sm">{program.id}</td>
-                                <td className="px-6 py-4 text-gray-600 text-sm">
-                                    {preview ? program.appliedDate.split(" ")[0] : program.appliedDate}
+                            <tr
+                                key={index}
+                                className="hover:bg-gray-50 transition-colors duration-150 border-b-3 border-gray-300"
+                            >
+                                <td className="py-3 text-gray-900 font-medium">
+                                    {program.name}
+                                </td>
+                                <td className="py-3">
+                                    {getStatusBadge(program.status, program)}
+                                </td>
+                                <td className="py-3 font-mono text-gray-700 text-sm">
+                                    {program.id}
+                                </td>
+                                <td className="py-3 text-gray-600 text-sm">
+                                    {preview
+                                        ? program.appliedDate.split(" ")[0]
+                                        : program.appliedDate}
                                 </td>
                             </tr>
                         ))}
@@ -151,9 +144,11 @@ export default function Programs({ preview = false }: { preview?: boolean }) {
             </div>
 
             {preview ? (
-
-                <div className="flex justify-start px-6 py-3">
-                    <Link href="/programs" className="flex items-center text-black font-bold text-md">
+                <div className="flex justify-start py-3">
+                    <Link
+                        href="/programs"
+                        className="flex items-center text-black font-bold text-md"
+                    >
                         View All
                         <Image
                             src="/right_arrow.png"
@@ -164,7 +159,6 @@ export default function Programs({ preview = false }: { preview?: boolean }) {
                         />
                     </Link>
                 </div>
-
             ) : (
                 <Pagination
                     currentPage={currentPage}
@@ -179,6 +173,7 @@ export default function Programs({ preview = false }: { preview?: boolean }) {
                     onClose={() => setOpenForm(false)}
                 />
             )}
-        </>
+        </div>
     );
 }
+
