@@ -3,14 +3,14 @@ import { useState } from "react";
 import Image from "next/image";
 
 const menuItems = [
-    { name: "Dashboard", icon: "📊", href: "/dashboard" },
-    { name: "My Programs", icon: "📋", href: "/programs" },
-    { name: "Total Benefits", icon: "💰", href: "/benefits" },
-    { name: "Bank Accounts", icon: "🏦", href: "/accounts" },
-    { name: "My Registries", icon: "📄", href: "/registries" },
-    { name: "Applicable Schemes", icon: "📋", href: "/schemes" },
-    { name: "Notifications", icon: "🔔", href: "/notifications" },
-    { name: "Complaints", icon: "📢", href: "/complaints" },
+    { name: "Dashboard", href: "/dashboard" },
+    { name: "My Programs", href: "/programs" },
+    { name: "Total Benefits", href: "/benefits" },
+    { name: "Bank Accounts", href: "/accounts" },
+    { name: "My Registries", href: "/registries" },
+    { name: "Applicable Schemes", href: "/schemes" },
+    { name: "Notifications", href: "/notifications" },
+    { name: "Complaints", href: "/complaints" },
 ];
 
 interface SidebarProps {
@@ -72,8 +72,8 @@ export default function Sidebar({ activeItem = 0, onItemClick }: SidebarProps) {
                     <div
                         key={idx}
                         className={`flex items-center cursor-pointer transition-all duration-200 mx-2 my-3 rounded-lg ${activeItem === idx
-                                ? "bg-blue-100 text-blue-700"
-                                : "text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                            ? "bg-blue-100 text-blue-700"
+                            : "text-black hover:bg-gray-100 hover:text-gray-900"
                             }`}
                         onClick={() => handleItemClick(idx)}
                     >
@@ -83,8 +83,8 @@ export default function Sidebar({ activeItem = 0, onItemClick }: SidebarProps) {
 
                         <span
                             className={`transition-all duration-300 ease-in-out whitespace-nowrap overflow-hidden ${expanded
-                                    ? "opacity-100 max-w-full ml-2"
-                                    : "opacity-0 max-w-0 ml-0"
+                                ? "opacity-100 max-w-full ml-2"
+                                : "opacity-0 max-w-0 ml-0"
                                 }`}
                         >
                             {item.name}

@@ -44,7 +44,7 @@ export default function LoginProviders() {
                             `/auth/getLoginProviderRedirect/${x.id}?redirect_uri=${prefixBasePath("/")}`
                         )}
                     >
-                        <button className="w-full py-2 rounded-md text-lg bg-black text-white font-semibold hover:opacity-80 transition">
+                        <button className="w-full py-2 rounded-md text-lg bg-black text-white font-semibold hover:bg-gray-950 transition cursor-pointer">
                             {x.displayName}
                         </button>
                     </a>

@@ -29,7 +29,7 @@ export default function LoginForm() {
                     </label>
                     <input
                         type="text"
-                        className="px-3 py-2 bg-white border-gray-400 border rounded-md focus:outline-none focus:ring-2 focus:ring-black"
+                        className="px-3 py-2 text-black bg-white border-gray-400 border rounded-md focus:outline-none"
                     />
                 </div>
 
@@ -37,7 +37,7 @@ export default function LoginForm() {
                     <label className="mb-1 text-md font-medium text-black">Password</label>
                     <input
                         type="password"
-                        className="px-3 py-2 bg-white border-gray-400 border rounded-md focus:outline-none focus:ring-2 focus:ring-black"
+                        className="px-3 py-2 text-black bg-white border-gray-400 border rounded-md focus:outline-none"
                     />
                     <div className="flex justify-end mt-1">
                         <a
@@ -51,7 +51,7 @@ export default function LoginForm() {
 
                 <button
                     type="submit"
-                    className="mt-2 w-full bg-black text-lg text-white py-2 rounded-md font-semibold hover:opacity-80 transition"
+                    className="mt-2 w-full bg-black text-lg text-white py-2 rounded-md font-semibold hover:bg-gray-950 transition cursor-pointer"
                 >
                     LOGIN
                 </button>
