@@ -8,7 +8,6 @@ export default function AccountsDeletePage() {
     return (
         <main>
             <div className="flex flex-row bg-white min-h-screen">
-                {/* Left Side Image */}
                 <div className="2xl:h-screen bg-gray-100 basis-1/2 flex items-center justify-center">
                     <div className="relative w-[500px] h-[500px] lg:w-[400px] lg:h-[400px]">
                         <Image
@@ -22,7 +21,6 @@ export default function AccountsDeletePage() {
                     </div>
                 </div>
 
-                {/* Right Side Content */}
                 <div className="basis-1/2 flex items-center justify-center">
                     <div className="w-full max-w-md">
                         <Suspense fallback={<Loading />}>

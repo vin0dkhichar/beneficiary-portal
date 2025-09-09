@@ -1,17 +1,7 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-
-const menuItems = [
-    { name: "Dashboard", href: "/dashboard" },
-    { name: "My Programs", href: "/programs" },
-    { name: "Total Benefits", href: "/benefits" },
-    { name: "Bank Accounts", href: "/accounts" },
-    { name: "My Registries", href: "/registries" },
-    { name: "Applicable Schemes", href: "/schemes" },
-    { name: "Notifications", href: "/notifications" },
-    { name: "Complaints", href: "/complaints" },
-];
+import { menuItems } from "@/utils/navigation";
 
 interface SidebarProps {
     activeItem?: number;
