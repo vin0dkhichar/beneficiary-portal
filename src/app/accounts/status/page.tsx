@@ -11,7 +11,6 @@ export default function AccountsStatusPage() {
     return (
         <main>
             <div className="flex flex-row bg-white">
-                {/* Left side with responsive image */}
                 <div className="2xl:h-screen bg-gray-100 basis-1/2 flex items-center justify-center">
                     <div className="pl-6 mt-28 relative w-[400px] h-[400px]">
                         <Image
@@ -25,7 +24,6 @@ export default function AccountsStatusPage() {
                     </div>
                 </div>
 
-                {/* Right side content */}
                 <div className="w-full max-w-sm m-20 basis-1/2">
                     <div className="2xl:mt-52 m-5 mt-12">
                         <Suspense fallback={<Loading />}>

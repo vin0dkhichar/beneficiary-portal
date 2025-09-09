@@ -37,7 +37,6 @@ export default function GetFaBox() {
 
             {renderState === 2 && getFaResult && (
                 <>
-                    {/* Modal */}
                     <Transition appear show={isOpen} as={Fragment}>
                         <Dialog as="div" className="relative z-10" onClose={closeModal}>
                             <TransitionChild
@@ -93,7 +92,6 @@ export default function GetFaBox() {
                         </Dialog>
                     </Transition>
 
-                    {/* FA Details */}
                     <ul className="w-full">
                         <div className="flex flex-col mb-6">
                             <div className="text-orange-500 text-3xl font-semibold">Your account information</div>
@@ -102,7 +100,6 @@ export default function GetFaBox() {
 
                         {getFaResult.fa_type === "BANK_ACCOUNT" && (
                             <>
-                                {/* Bank */}
                                 <li className="border-b-3 border-orange-200 p-4 flex items-start space-x-6">
                                     <div className="flex-shrink-0 w-[70px]">
                                         <Image
@@ -121,7 +118,6 @@ export default function GetFaBox() {
                                     </div>
                                 </li>
 
-                                {/* Branch */}
                                 <li className="border-b-3 border-orange-200 p-4 flex items-start space-x-6">
                                     <div className="flex-shrink-0 w-[70px]"></div>
                                     <div className="flex flex-col justify-center">
@@ -132,7 +128,6 @@ export default function GetFaBox() {
                                     </div>
                                 </li>
 
-                                {/* Account */}
                                 <li className="border-b-3 border-orange-200 p-4 flex items-start space-x-6">
                                     <div className="flex-shrink-0 w-[70px]"></div>
                                     <div className="flex flex-col justify-center">
@@ -147,7 +142,6 @@ export default function GetFaBox() {
                         )}
                     </ul>
 
-                    {/* Actions */}
                     <div className="flex justify-center mt-8 space-x-6">
                         <Link
                             href={`/accounts/update`}
