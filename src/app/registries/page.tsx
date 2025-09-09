@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { UpdateRegistryForm } from "@/components";
+import { UpdateRegistryForm, Pagination } from "@/components";
 
 export interface Registry {
     name: string;
@@ -18,67 +18,75 @@ const myRegistries: Registry[] = [
     { name: "My Food Security Registry", id: "74638291028", date: "15/06/2025", action: "Update" },
     { name: "My Skill Development Registry", id: "18273645563", date: "05/06/2025", action: "Update" },
     { name: "My Social Welfare Registry", id: "92837465547", date: "25/05/2025", action: "Update" },
+    { name: "My Transportation Registry", id: "10293847561", date: "20/05/2025", action: "Update" },
+    { name: "My Energy Subsidy Registry", id: "56473829104", date: "15/05/2025", action: "Update" },
+    { name: "My Housing Development Registry", id: "38475619284", date: "10/05/2025", action: "Update" },
+    { name: "My Education Aid Registry", id: "84756392015", date: "05/05/2025", action: "Update" },
+    { name: "My Pension Support Registry", id: "12938475640", date: "01/05/2025", action: "Update" },
+    { name: "My Food Security Aid Registry", id: "92837465548", date: "25/04/2025", action: "Update" },
+    { name: "My Skill Training Registry", id: "18273645564", date: "15/04/2025", action: "Update" },
+    { name: "My Social Welfare Support Registry", id: "74638291029", date: "05/04/2025", action: "Update" },
 ];
 
 export default function RegistriesPage() {
     const [openForm, setOpenForm] = useState(false);
     const [selectedRegistry, setSelectedRegistry] = useState<Registry | null>(null);
 
-    return (
-        <div className="p-6 min-h-screen bg-gray-50">
-            <div className="mb-6">
-                <h1 className="text-xl font-bold text-gray-800">My Registries</h1>
-            </div>
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 8;
+    const totalPages = Math.ceil(myRegistries.length / itemsPerPage);
+    const currentRegistries = myRegistries.slice(
+        (currentPage - 1) * itemsPerPage,
+        currentPage * itemsPerPage
+    );
 
-            <div className="bg-white rounded-lg overflow-hidden border border-black/20">
+    return (
+        <div className="px-10 py-4 min-h-screen bg-gray-50">
+            <div className="mb-4">
+                <h1 className="text-2xl font-bold text-gray-800">My Registries</h1>
+            </div>
+            <div className="bg-white rounded-lg overflow-hidden border border-black/20 p-4">
                 <div className="overflow-x-auto px-4">
-                    <table className="w-full text-left border-collapse table-fixed">
-                        <thead className="text-gray-700 border-b-3 border-gray-200">
+                    <table className="w-full text-left border-collapse min-w-[700px]">
+                        <thead className="border-b-4 border-gray-200">
                             <tr>
-                                <th className="px-6 py-3 text-sm font-semibold tracking-wider">Registries</th>
-                                <th className="px-6 py-3 text-sm font-semibold tracking-wider">ID</th>
-                                <th className="px-6 py-3 text-sm font-semibold tracking-wider">Date</th>
-                                <th className="px-6 py-3 text-sm font-semibold tracking-wider">Action</th>
+                                <th className="py-4 text-sm font-semibold text-black">Registry Name</th>
+                                <th className="py-4 text-sm font-semibold text-black">ID</th>
+                                <th className="py-4 text-sm font-semibold text-black">Date</th>
+                                <th className="py-4 text-sm font-semibold text-black">Action</th>
                             </tr>
                         </thead>
-                        <tbody className="divide-y-2 divide-gray-200">
-                            {myRegistries.map((registry, index) => (
+                        <tbody>
+                            {currentRegistries.map((registry, index) => (
                                 <tr
                                     key={index}
-                                    className="hover:bg-gray-50 transition-colors duration-150"
+                                    className="hover:bg-gray-50 transition-colors duration-150 border-b-3 border-gray-300"
                                 >
-                                    <td className="px-6 py-4 text-gray-900 font-medium">{registry.name}</td>
-                                    <td className="px-6 py-4 font-mono text-gray-700 text-sm">{registry.id}</td>
-                                    <td className="px-6 py-4 text-gray-600 text-sm">{registry.date}</td>
-                                    <td className="px-6 py-4">
-                                        <button
-                                            className="px-3 py-1 text-sm bg-blue-600 text-white rounded hover:bg-blue-700"
+                                    <td className="py-3 text-gray-900 font-medium">{registry.name}</td>
+                                    <td className="py-3 font-mono text-gray-900 text-sm">{registry.id}</td>
+                                    <td className="py-3 text-gray-600 text-sm">{registry.date}</td>
+                                    <td className="py-3">
+                                        <span
                                             onClick={() => {
                                                 setSelectedRegistry(registry);
                                                 setOpenForm(true);
                                             }}
+                                            className="text-black text-sm font-medium underline cursor-pointer hover:text-blue-600 transition-colors"
                                         >
                                             {registry.action}
-                                        </button>
+                                        </span>
                                     </td>
                                 </tr>
                             ))}
                         </tbody>
                     </table>
-                    <div className="flex justify-center items-center space-x-2 py-4">
-                        <button className="px-3 py-1 text-gray-600 bg-gray-100 rounded hover:bg-gray-200">
-                            ←
-                        </button>
-                        <button className="px-3 py-1 bg-blue-600 text-white rounded">1</button>
-                        <button className="px-3 py-1 text-gray-600 bg-gray-100 rounded hover:bg-gray-200">
-                            2
-                        </button>
-                        <button className="px-3 py-1 text-gray-600 bg-gray-100 rounded hover:bg-gray-200">
-                            3
-                        </button>
-                        <button className="px-3 py-1 text-gray-600 bg-gray-100 rounded hover:bg-gray-200">
-                            →
-                        </button>
+
+                    <div className="mt-4">
+                        <Pagination
+                            currentPage={currentPage}
+                            totalPages={totalPages}
+                            onPageChange={setCurrentPage}
+                        />
                     </div>
                 </div>
             </div>
