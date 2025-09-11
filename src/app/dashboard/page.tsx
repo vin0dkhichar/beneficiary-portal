@@ -40,41 +40,49 @@ export default function Dashboard() {
                             link="/benefits"
                         />
                     </div>
-                    <div className="flex-1 bg-white rounded-xl p-4 sm:p-6 border border-black/20 transition-shadow duration-300">
-                        <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4">
-                            Linked Accounts
-                        </h3>
-                        <div className="space-y-2 sm:space-y-3">
-                            <div className="flex items-center p-2 sm:p-3 bg-blue-50 rounded-lg">
-                                <div className="w-6 h-6 sm:w-8 sm:h-8 bg-blue-500 rounded-full flex items-center justify-center mr-2 sm:mr-3 flex-shrink-0">
-                                    <span className="text-white text-xs font-bold">SBI</span>
-                                </div>
-                                <div className="flex-1 min-w-0">
-                                    <p className="font-medium text-gray-800 text-sm sm:text-base truncate">
-                                        State Bank of India
-                                    </p>
-                                    <p className="text-xs sm:text-sm text-gray-500">****1234</p>
-                                </div>
-                                <span className="text-green-600 text-xs whitespace-nowrap">
-                                    ✓ Verified
-                                </span>
+
+                    <div className="bg-white rounded-xl p-4 sm:p-6 border border-black/20 transition-shadow duration-300">
+                        <div className="flex items-center justify-between mb-0.5">
+                            <h3 className="text-lg sm:text-xl font-bold text-gray-800">
+                                Bank Accounts
+                            </h3>
+                            <Image
+                                src="/spar.png"
+                                alt="spar"
+                                width={58}
+                                height={24}
+                            />
+                        </div>
+
+                        <p className="text-lg text-gray-600 mb-1">Current linked account</p>
+                        <div className="border-b-4 border-gray-200 mb-4"></div>
+
+                        <div className="space-y-3">
+                            <div>
+                                <p className="font-medium text-black">John Smith</p>
                             </div>
-                            <div className="flex items-center p-2 sm:p-3 bg-orange-50 rounded-lg">
-                                <div className="w-6 h-6 sm:w-8 sm:h-8 bg-orange-500 rounded-full flex items-center justify-center mr-2 sm:mr-3 flex-shrink-0">
-                                    <span className="text-white text-xs font-bold">PNB</span>
-                                </div>
-                                <div className="flex-1 min-w-0">
-                                    <p className="font-medium text-gray-800 text-sm sm:text-base truncate">
-                                        Punjab National Bank
-                                    </p>
-                                    <p className="text-xs sm:text-sm text-gray-500">****5678</p>
-                                </div>
-                                <span className="text-yellow-600 text-xs whitespace-nowrap">
-                                    ⏳ Pending
-                                </span>
+                            <div>
+                                <p className="font-medium text-black">xxxx xxxx xxxx 1234</p>
                             </div>
                         </div>
+
+                        <div className="flex justify-start mt-4">
+                            <Link
+                                href="/accounts"
+                                className="flex items-center text-black font-bold text-sm sm:text-base"
+                            >
+                                Edit Account Details
+                                <Image
+                                    src="/right_arrow.png"
+                                    alt="arrow"
+                                    width={12}
+                                    height={12}
+                                    className="ml-1.5"
+                                />
+                            </Link>
+                        </div>
                     </div>
+
                 </div>
             </div>
 

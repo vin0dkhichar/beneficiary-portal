@@ -42,7 +42,7 @@ export default function LoginForm() {
                     <div className="flex justify-end mt-1">
                         <a
                             href="/reset-password"
-                            className="text-sm text-gray-600 hover:underline"
+                            className="text-sm text-gray-600 hover:text-black font-bold"
                         >
                             Reset Password?
                         </a>

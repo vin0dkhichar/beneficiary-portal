@@ -62,7 +62,7 @@ export default function Sidebar({ activeItem = 0, onItemClick }: SidebarProps) {
                     <div
                         key={idx}
                         className={`flex items-center cursor-pointer transition-all duration-200 mx-2 my-3 rounded-lg ${activeItem === idx
-                            ? "bg-blue-100 text-blue-700"
+                            ? "bg-gray-100 text-black font-bold"
                             : "text-black hover:bg-gray-100 hover:text-gray-900"
                             }`}
                         onClick={() => handleItemClick(idx)}
