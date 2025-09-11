@@ -93,7 +93,7 @@ export default function Programs({ preview = false }: { preview?: boolean }) {
                             <th className="py-2 text-xl font-semibold text-gray-800 text-left">
                                 My Programs
                             </th>
-                            <th className="py-2 text-gray-600 font-normal text-left">
+                            <th className="py-2 px-2 text-gray-600 font-normal text-left">
                                 Total Programs:{" "}
                                 <span className="font-bold text-black">{total}</span>
                             </th>
@@ -111,7 +111,7 @@ export default function Programs({ preview = false }: { preview?: boolean }) {
                     <thead className="text-gray-700 border-b-3 border-gray-200">
                         <tr>
                             <th className="py-3 text-sm font-semibold">Program Name</th>
-                            <th className="py-3 text-sm font-semibold">Application Status</th>
+                            <th className="py-3 px-2 text-sm font-semibold">Application Status</th>
                             <th className="py-3 text-sm font-semibold">Application ID</th>
                             <th className="py-3 text-sm font-semibold">Applied Date</th>
                         </tr>
