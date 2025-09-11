@@ -3,7 +3,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Programs, TotalBenefitsCard } from "@/components";
+import { AuthUtil } from "@/components/Auth";
+
 import { benefitsData } from "@/utils/benefits";
+
 
 const previewRegistries = [
     { name: "My Healthcare Registry" },
@@ -12,6 +15,9 @@ const previewRegistries = [
 ];
 
 export default function Dashboard() {
+
+    // AuthUtil({failedRedirectUrl: `/login`});
+
     const totalAwaitedFunds = benefitsData.reduce(
         (sum, b) => sum + b.awaitedFunds,
         0

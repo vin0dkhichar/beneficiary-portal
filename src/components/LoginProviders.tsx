@@ -11,29 +11,29 @@ type LoginProvider = {
 };
 
 export default function LoginProviders() {
-    const loginProviders = [
-        {
-            id: 1,
-            displayName: "LOGIN WITH NATIONAL ID",
-        },
-    ];
-    // const [loginProviders, setLoginProviders] = useState<LoginProvider[]>([]);
+    // const loginProviders = [
+    //     {
+    //         id: 1,
+    //         displayName: "LOGIN WITH NATIONAL ID",
+    //     },
+    // ];
+    const [loginProviders, setLoginProviders] = useState<LoginProvider[]>([]);
 
-    // useEffect(() => {
-    //     fetch(prefixBaseApiPath(`/auth/getLoginProviders`))
-    //         .then((res) => res.json())
-    //         .then((resJson: { loginProviders: LoginProvider[] }) => {
-    //             const providers = resJson.loginProviders.map((x) => {
-    //                 if (typeof x.displayName !== "string") {
-    //                     const displayNameLocale = Object.keys(x.displayName)[0];
-    //                     x.displayName = x.displayName[displayNameLocale] || "";
-    //                 }
-    //                 return x;
-    //             });
-    //             setLoginProviders(providers);
-    //         })
-    //         .catch((err) => console.error("Failed to fetch login providers:", err));
-    // }, []);
+    useEffect(() => {
+        fetch(prefixBaseApiPath(`/auth/getLoginProviders`))
+            .then((res) => res.json())
+            .then((resJson: { loginProviders: LoginProvider[] }) => {
+                const providers = resJson.loginProviders.map((x) => {
+                    if (typeof x.displayName !== "string") {
+                        const displayNameLocale = Object.keys(x.displayName)[0];
+                        x.displayName = x.displayName[displayNameLocale] || "";
+                    }
+                    return x;
+                });
+                setLoginProviders(providers);
+            })
+            .catch((err) => console.error("Failed to fetch login providers:", err));
+    }, []);
 
     return (
         <div className="mt-1 w-full">
