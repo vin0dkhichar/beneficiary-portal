@@ -8,9 +8,6 @@ import { linkFa } from "@/utils/link";
 import { updateFa } from "@/utils/update";
 import { FormLevel, FormLevelValue, KeyValue } from "@/types/dfsp-levels";
 
-// -----------------
-// Dummy Data
-// -----------------
 const dummyLevels: FormLevel[] = [
     {
         id: 1,
@@ -477,6 +474,7 @@ export default function UpdateFaBox() {
                                                         <div className="flex flex-col m-6 mt-4">
                                                             <Image
                                                                 className={`w-10 h-10 square-full ${subTab === j + 1 ? "opacity-100" : "opacity-30"}`}
+                                                                // src={`/${option.name}.png`}
                                                                 src={`/${option.name}.png`}
                                                                 alt={option.name}
                                                                 width={50}

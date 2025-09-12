@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import { prefixBasePath } from "@/utils/path";
 
 interface Benefit {
     programName: string;
@@ -39,7 +40,7 @@ const TransferHistory = ({ benefit, onClose }: TransferHistoryProps) => {
                         className="cursor-pointer"
                     >
                         <Image
-                            src="/x.png"
+                            src={prefixBasePath("/x.png")}
                             alt="Close"
                             width={20}
                             height={20}

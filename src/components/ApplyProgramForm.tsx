@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import { prefixBasePath } from "@/utils/path";
 
 type ProgramStatus = "Apply" | "Applied" | "Pending" | "Enrolled";
 
@@ -26,7 +27,7 @@ export default function ApplyProgramForm({ program, onClose }: ApplyProgramFormP
                         className="cursor-pointer"
                     >
                         <Image
-                            src="/x.png"
+                            src={prefixBasePath("/x.png")}
                             alt="Close"
                             width={20}
                             height={20}

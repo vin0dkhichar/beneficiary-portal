@@ -16,7 +16,7 @@ export default function NotFoundPage() {
                     Sorry, we can't find that page.
                 </p>
                 <Link
-                    href="/"
+                    href="/dashboard"
                     className="inline-flex text-black bg-[#D9D9D9] font-medium rounded-lg text-sm px-5 py-2.5 text-center my-4"
                 >
                     Back to Homepage

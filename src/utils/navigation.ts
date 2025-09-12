@@ -3,23 +3,19 @@ export type MenuItem = {
     href: string;
 };
 
-export const menuItems: MenuItem[] = [
-    { name: "Dashboard", href: "/dashboard" },
-    { name: "My Programs", href: "/programs" },
-    { name: "Total Benefits", href: "/benefits" },
-    { name: "Bank Accounts", href: "/accounts" },
-    { name: "My Registries", href: "/registries" },
-    { name: "Applicable Schemes", href: "/schemes" },
-    { name: "Notifications", href: "/notifications" },
-    { name: "Complaints", href: "/complaints" },
+export const getMenuItems = (locale: string): MenuItem[] => [
+    { name: "Dashboard", href: `/${locale}/dashboard` },
+    { name: "My Programs", href: `/${locale}/programs` },
+    { name: "Total Benefits", href: `/${locale}/benefits` },
+    { name: "Bank Accounts", href: `/${locale}/accounts` },
+    { name: "My Registries", href: `/${locale}/registries` },
+    { name: "Applicable Schemes", href: `/${locale}/schemes` },
+    { name: "Notifications", href: `/${locale}/notifications` },
+    { name: "Complaints", href: `/${locale}/complaints` },
 ];
 
-export const routeToIndex: Record<string, number> = menuItems.reduce(
-    (acc, item, index) => {
+export const getRouteToIndex = (locale: string): Record<string, number> =>
+    getMenuItems(locale).reduce((acc, item, index) => {
         acc[item.href] = index;
         return acc;
-    },
-    {} as Record<string, number>
-);
-
-export const noLayoutRoutes = ["/", "/login"];
+    }, {} as Record<string, number>);

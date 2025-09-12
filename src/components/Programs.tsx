@@ -3,6 +3,8 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ApplyProgramForm, Pagination } from "@/components";
+import { prefixBasePath } from "@/utils/path";
+
 
 type ProgramStatus = "Apply" | "Applied" | "Pending" | "Enrolled";
 
@@ -151,7 +153,7 @@ export default function Programs({ preview = false }: { preview?: boolean }) {
                     >
                         View All
                         <Image
-                            src="/right_arrow.png"
+                            src={prefixBasePath("/right_arrow.png")}
                             alt="arrow"
                             width={12}
                             height={12}

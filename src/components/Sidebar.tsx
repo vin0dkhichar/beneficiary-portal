@@ -1,19 +1,36 @@
 "use client";
-import { useState } from "react";
+
+import { useState, useEffect } from "react";
 import Image from "next/image";
-import { menuItems } from "@/utils/navigation";
+import Link from "next/link";
+import { useLocale } from "next-intl";
+import { usePathname } from "next/navigation";
+import { getMenuItems, getRouteToIndex } from "@/utils/navigation";
+import { prefixBasePath } from "@/utils/path";
+
 
 interface SidebarProps {
-    activeItem?: number;
     onItemClick?: (index: number, href: string) => void;
 }
 
-export default function Sidebar({ activeItem = 0, onItemClick }: SidebarProps) {
+export default function Sidebar({ onItemClick }: SidebarProps) {
     const [expanded, setExpanded] = useState(false);
+    const locale = useLocale();
+    const pathname = usePathname();
 
-    const handleItemClick = (index: number) => {
+    const menuItems = getMenuItems(locale);
+    const routeToIndex = getRouteToIndex(locale);
+
+    // Compute active item from current pathname
+    // const activeItem = routeToIndex[pathname] ?? 0;
+    const activeItem =
+        Object.entries(routeToIndex).find(([href]) =>
+            pathname.startsWith(href)
+        )?.[1] ?? 0;
+
+    const handleItemClick = (index: number, href: string) => {
         if (onItemClick) {
-            onItemClick(index, menuItems[index].href);
+            onItemClick(index, href);
         }
     };
 
@@ -29,7 +46,7 @@ export default function Sidebar({ activeItem = 0, onItemClick }: SidebarProps) {
                         onClick={() => setExpanded(true)}
                     >
                         <Image
-                            src="/bar.png"
+                            src={prefixBasePath("/bar.png")}
                             alt="Menu"
                             width={24}
                             height={24}
@@ -45,7 +62,7 @@ export default function Sidebar({ activeItem = 0, onItemClick }: SidebarProps) {
                             onClick={() => setExpanded(false)}
                         >
                             <Image
-                                src="/x.png"
+                                src={prefixBasePath("/x.png")}
                                 alt="Close"
                                 width={20}
                                 height={20}
@@ -59,13 +76,14 @@ export default function Sidebar({ activeItem = 0, onItemClick }: SidebarProps) {
 
             <div className="py-4">
                 {menuItems.map((item, idx) => (
-                    <div
+                    <Link
                         key={idx}
+                        href={item.href}
                         className={`flex items-center cursor-pointer transition-all duration-200 mx-2 my-3 rounded-lg ${activeItem === idx
                             ? "bg-gray-100 text-black font-bold"
                             : "text-black hover:bg-gray-100 hover:text-gray-900"
                             }`}
-                        onClick={() => handleItemClick(idx)}
+                        onClick={() => handleItemClick(idx, item.href)}
                     >
                         <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center pr-1">
                             <div className="bg-gray-400 rounded-full w-8 h-8 p-1"></div>
@@ -79,7 +97,7 @@ export default function Sidebar({ activeItem = 0, onItemClick }: SidebarProps) {
                         >
                             {item.name}
                         </span>
-                    </div>
+                    </Link>
                 ))}
             </div>
         </div>

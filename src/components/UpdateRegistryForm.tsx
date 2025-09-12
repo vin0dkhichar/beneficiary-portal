@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
+import { prefixBasePath } from "@/utils/path";
 
 export interface Registry {
     name: string;
@@ -38,7 +39,7 @@ export default function UpdateRegistryForm({ registry, onClose }: UpdateRegistry
                         className="cursor-pointer"
                     >
                         <Image
-                            src="/x.png"
+                            src={prefixBasePath("/x.png")}
                             alt="Close"
                             width={20}
                             height={20}

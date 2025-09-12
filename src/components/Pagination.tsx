@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import { prefixBasePath } from "@/utils/path";
 
 interface PaginationProps {
     currentPage: number;
@@ -17,7 +18,7 @@ export default function Pagination({ currentPage, totalPages, onPageChange }: Pa
                 className="flex items-center justify-center w-6 h-6 bg-[#D9D9D9] rounded hover:bg-gray-300"
             >
                 <Image
-                    src="/right_arrow.png"
+                    src={prefixBasePath("/right_arrow.png")}
                     alt="prev"
                     width={12}
                     height={12}
@@ -43,7 +44,7 @@ export default function Pagination({ currentPage, totalPages, onPageChange }: Pa
                 className="flex items-center justify-center w-6 h-6 bg-[#D9D9D9] rounded hover:bg-gray-300"
             >
                 <Image
-                    src="/right_arrow.png"
+                    src={prefixBasePath("/right_arrow.png")}
                     alt="next"
                     width={12}
                     height={12}

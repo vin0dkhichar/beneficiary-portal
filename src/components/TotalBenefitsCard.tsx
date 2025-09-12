@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { prefixBasePath } from "@/utils/path";
 
 interface TotalBenefitsCardProps {
     totalAmount: number;
@@ -31,7 +32,7 @@ export default function TotalBenefitsCard({ totalAmount, receivedAmount, link }:
                     <Link href={link} className="flex items-center text-black font-bold text-md">
                         View Amount Details
                         <Image
-                            src="/right_arrow.png"
+                            src={prefixBasePath("/right_arrow.png")}
                             alt="arrow"
                             width={12}
                             height={12}

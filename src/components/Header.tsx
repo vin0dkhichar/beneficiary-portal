@@ -1,5 +1,7 @@
 "use client";
 import Image from "next/image";
+import { prefixBasePath } from "@/utils/path";
+
 
 export default function Header() {
     const profile = {
@@ -11,7 +13,7 @@ export default function Header() {
         <header className="w-full bg-[#D9D9D9] flex items-center justify-between px-6 py-3 fixed top-0 left-0 right-0 z-20 h-[70px] border-b border-gray-300">
             <div className="flex items-center gap-3">
                 <Image
-                    src="/header.png"
+                    src={prefixBasePath("/header.png")}
                     alt="Logo"
                     width={40}
                     height={40}
@@ -24,7 +26,7 @@ export default function Header() {
             <div className="flex items-center gap-4">
                 <button className="relative">
                     <Image
-                        src="/notification.png"
+                        src={prefixBasePath("/notification.png")}
                         alt="Notifications"
                         width={24}
                         height={24}
@@ -37,7 +39,7 @@ export default function Header() {
                     </span>
                     <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-gray-300">
                         <img
-                            src={profile?.picture || "/default-avatar.png"}
+                            src={prefixBasePath("/user.png")}
                             alt="User Avatar"
                             className="w-full h-full object-cover"
                         />

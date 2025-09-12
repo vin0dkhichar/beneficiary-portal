@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { Dialog, DialogPanel, Transition, TransitionChild } from "@headlessui/react";
 import { Loading } from "@/components";
+import { prefixBasePath } from "@/utils/path";
 
 export default function GetFaBox() {
     const router = useRouter();
@@ -104,7 +105,7 @@ export default function GetFaBox() {
                                     <div className="flex-shrink-0 w-[70px]">
                                         <Image
                                             className="rounded-lg"
-                                            src="/Bank.png"
+                                            src={prefixBasePath("/Bank.png")}
                                             alt="bank"
                                             width={70}
                                             height={70}

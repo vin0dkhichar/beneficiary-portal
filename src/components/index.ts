@@ -9,7 +9,6 @@ import TransferHistory from "./TransferHistory";
 import LoginProviders from "./LoginProviders";
 import LoginForm from "./LoginForm";
 import UpdateRegistryForm from "./UpdateRegistryForm";
-import CommonLayout from "./CommonLayout";
 import Error from "./Error";
 import Loading from "./Loading";
 import GetFaBox from "./GetFaBox";
@@ -27,7 +26,6 @@ export {
     LoginProviders,
     LoginForm,
     UpdateRegistryForm,
-    CommonLayout,
     Error,
     Loading,
     GetFaBox,

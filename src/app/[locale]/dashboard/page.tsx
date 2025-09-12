@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Programs, TotalBenefitsCard } from "@/components";
 import { AuthUtil } from "@/components/Auth";
+import { prefixBasePath } from "@/utils/path";
 
 import { benefitsData } from "@/utils/benefits";
 
@@ -53,7 +54,7 @@ export default function Dashboard() {
                                 Bank Accounts
                             </h3>
                             <Image
-                                src="/spar.png"
+                                src={prefixBasePath("/spar.png")}
                                 alt="spar"
                                 width={58}
                                 height={24}
@@ -79,7 +80,7 @@ export default function Dashboard() {
                             >
                                 Edit Account Details
                                 <Image
-                                    src="/right_arrow.png"
+                                    src={prefixBasePath("/right_arrow.png")}
                                     alt="arrow"
                                     width={12}
                                     height={12}
@@ -119,7 +120,7 @@ export default function Dashboard() {
                         >
                             View All
                             <Image
-                                src="/right_arrow.png"
+                                src={prefixBasePath("/right_arrow.png")}
                                 alt="arrow"
                                 width={12}
                                 height={12}
