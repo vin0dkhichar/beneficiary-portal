@@ -95,7 +95,7 @@ export default function Programs({ preview = false }: { preview?: boolean }) {
                             <th className="py-2 text-xl font-semibold text-gray-800 text-left">
                                 My Programs
                             </th>
-                            <th className="py-2 px-2 text-gray-600 font-normal text-left">
+                            <th className="py-2 px-1 text-gray-600 font-normal text-left">
                                 Total Programs:{" "}
                                 <span className="font-bold text-black">{total}</span>
                             </th>
