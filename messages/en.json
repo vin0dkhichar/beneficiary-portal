@@ -1,9 +1,20 @@
 {
-    "welcome": "Welcome to OpenG2P Beneficiary Portal",
-    "login": "Log in",
-    "getStarted": "GET STARTED",
-    "description": "It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
-    "dashboard": "Dashboard",
-    "profile": "Profile",
-    "settings": "Settings"
+    "homePage": {
+        "welcome": "Welcome to OpenG2P Beneficiary Portal",
+        "getStarted": "GET STARTED",
+        "description": "It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
+    },
+    "navigation": {
+        "dashboard": "Dashboard",
+        "profile": "Profile",
+        "settings": "Settings"
+    },
+    "loginPage": {
+        "portalName": "Beneficiary Portal",
+        "emailOrPhone": "Email or Phone",
+        "password": "Password",
+        "resetPassword": "Reset Password?",
+        "login": "LOGIN",
+        "loginWithNationalID": "LOGIN WITH NATIONAL ID"
+    }
 }

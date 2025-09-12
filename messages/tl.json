@@ -1,9 +1,20 @@
 {
-    "welcome": "Maligayang pagdating sa OpenG2P Beneficiary Portal",
-    "login": "Mag-login",
-    "getStarted": "MAGSIMULA",
-    "description": "Nakaligtas ito hindi lamang sa limang siglo, kundi pati na rin sa paglipat sa elektronikong paglilimbag, nananatiling halos hindi nagbago.",
-    "dashboard": "Dashboard",
-    "profile": "Profile",
-    "settings": "Mga Setting"
+    "homePage": {
+        "welcome": "Maligayang pagdating sa OpenG2P Beneficiary Portal",
+        "getStarted": "MAGSIMULA",
+        "description": "Nakaligtas ito hindi lamang sa limang siglo, kundi pati na rin sa paglipat sa elektronikong paglilimbag, nananatiling halos hindi nagbago."
+    },
+    "navigation": {
+        "dashboard": "Dashboard",
+        "profile": "Profile",
+        "settings": "Mga Setting"
+    },
+    "loginPage": {
+        "portalName": "Beneficiary Portal",
+        "emailOrPhone": "Email o Telepono",
+        "password": "Password",
+        "resetPassword": "I-reset ang Password?",
+        "login": "MAG-LOGIN",
+        "loginWithNationalID": "MAG-LOGIN GAMIT ANG NATIONAL ID"
+    }
 }
