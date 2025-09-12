@@ -21,8 +21,6 @@ export default function Sidebar({ onItemClick }: SidebarProps) {
     const menuItems = getMenuItems(locale);
     const routeToIndex = getRouteToIndex(locale);
 
-    // Compute active item from current pathname
-    // const activeItem = routeToIndex[pathname] ?? 0;
     const activeItem =
         Object.entries(routeToIndex).find(([href]) =>
             pathname.startsWith(href)
@@ -79,13 +77,13 @@ export default function Sidebar({ onItemClick }: SidebarProps) {
                     <Link
                         key={idx}
                         href={item.href}
-                        className={`flex items-center cursor-pointer transition-all duration-200 mx-2 my-3 rounded-lg ${activeItem === idx
+                        className={`flex items-center cursor-pointer transition-all duration-200 mx-2 mr-1 my-3 rounded-lg ${activeItem === idx
                             ? "bg-gray-100 text-black font-bold"
                             : "text-black hover:bg-gray-100 hover:text-gray-900"
                             }`}
                         onClick={() => handleItemClick(idx, item.href)}
                     >
-                        <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center pr-1">
+                        <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center">
                             <div className="bg-gray-400 rounded-full w-8 h-8 p-1"></div>
                         </div>
 

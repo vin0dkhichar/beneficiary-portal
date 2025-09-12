@@ -4,6 +4,8 @@ import Image from "next/image";
 import { SyntheticEvent } from "react";
 import { LoginProviders } from "@/components";
 import { useTranslations } from "next-intl";
+import { prefixBasePath } from "@/utils/path";
+
 
 export default function LoginForm() {
     const t = useTranslations("loginPage");
@@ -16,7 +18,7 @@ export default function LoginForm() {
     return (
         <div className="w-[450px] bg-[#D9D9D9] rounded-lg shadow-lg flex flex-col items-center p-6">
             <Image
-                src="/login.png"
+                src={prefixBasePath("/login.png")}
                 alt={t("portalName")}
                 width={80}
                 height={80}
