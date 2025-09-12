@@ -1,10 +1,22 @@
 import type { Metadata } from "next";
-import { NextIntlClientProvider } from "next-intl";
 import { ReactNode } from "react";
+import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
+import { Geist, Geist_Mono } from "next/font/google";
+
 import "@/commons/globals.css";
 import { GlobalContextProvider } from "@/context/global";
 import { prefixBasePath } from "@/utils/path";
+
+const geistSans = Geist({
+    variable: "--font-geist-sans",
+    subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+    variable: "--font-geist-mono",
+    subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
     title: "Beneficiary Portal",
@@ -26,17 +38,16 @@ export default async function RootLayout(props: {
 }) {
     const { children, params } = props;
     const { locale } = await params;
-
     const messages = await getMessages({ locale });
 
     return (
         <html lang={locale}>
-            <body>
-                <main className="bg-bgc font-fontcustom flex flex-col min-h-screen">
-                    <NextIntlClientProvider locale={locale} messages={messages}>
-                        <GlobalContextProvider>{children}</GlobalContextProvider>
-                    </NextIntlClientProvider>
-                </main>
+            <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+                <NextIntlClientProvider locale={locale} messages={messages}>
+                    <GlobalContextProvider>
+                        {children}
+                    </GlobalContextProvider>
+                </NextIntlClientProvider>
             </body>
         </html>
     );
