@@ -4,12 +4,13 @@ import { ReactNode } from "react";
 import { getMessages } from "next-intl/server";
 import "@/commons/globals.css";
 import { GlobalContextProvider } from "@/context/global";
+import { prefixBasePath } from "@/utils/path";
 
 export const metadata: Metadata = {
     title: "Beneficiary Portal",
     description: "OpenG2P self-service portal for Beneficiaries",
     icons: {
-        icon: "/logo.png",
+        icon: prefixBasePath("/logo.png"),
     },
 };
 

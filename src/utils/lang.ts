@@ -1,4 +1,5 @@
+import { routing } from "@/i18n/routing";
+
 export function getSupportedLocales() {
-    const localesStr = process.env.NEXT_PUBLIC_LANGUAGES_SUPPORTED || "en fr tl";
-    return localesStr.split(/\s+/);
+    return routing.locales;
 }

@@ -13,6 +13,7 @@ import Error from "./Error";
 import Loading from "./Loading";
 import GetFaBox from "./GetFaBox";
 import UpdateFaBox from "./UpdateFaBox";
+import LanguageDropDown from "./LanguageDropDown";
 
 export {
     Header,
@@ -29,5 +30,6 @@ export {
     Error,
     Loading,
     GetFaBox,
-    UpdateFaBox
+    UpdateFaBox,
+    LanguageDropDown
 };
