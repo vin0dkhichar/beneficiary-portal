@@ -14,6 +14,7 @@ import Loading from "./Loading";
 import GetFaBox from "./GetFaBox";
 import UpdateFaBox from "./UpdateFaBox";
 import LanguageDropDown from "./LanguageDropDown";
+import NotFoundClient from "./NotFound";
 
 export {
     Header,
@@ -31,5 +32,6 @@ export {
     Loading,
     GetFaBox,
     UpdateFaBox,
-    LanguageDropDown
+    LanguageDropDown,
+    NotFoundClient
 };
