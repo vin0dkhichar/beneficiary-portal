@@ -64,7 +64,7 @@ export default function LanguageDropDown() {
                                 <button
                                     onClick={() => handleLocaleChange(locale)}
                                     className={`flex items-center gap-2 px-3 py-1 text-sm w-full text-left transition-colors duration-150 ${currentLocale === locale
-                                        ? 'bg-gray-50 text-blue-800 font-medium'
+                                        ? 'bg-gray-200 text-black font-medium'
                                         : 'text-gray-700'
                                         }`}
                                 >

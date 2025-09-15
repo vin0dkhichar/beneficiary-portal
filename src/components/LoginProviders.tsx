@@ -11,29 +11,29 @@ type LoginProvider = {
 };
 
 export default function LoginProviders() {
-    const loginProviders = [
-        {
-            id: 1,
-            displayName: "LOGIN WITH NATIONAL ID",
-        },
-    ];
-    // const [loginProviders, setLoginProviders] = useState<LoginProvider[]>([]);
+    // const loginProviders = [
+    //     {
+    //         id: 1,
+    //         displayName: "LOGIN WITH NATIONAL ID",
+    //     },
+    // ];
+    const [loginProviders, setLoginProviders] = useState<LoginProvider[]>([]);
 
-    // useEffect(() => {
-    //     fetch(prefixBaseApiPath(`/auth/getLoginProviders`))
-    //         .then((res) => res.json())
-    //         .then((resJson: { loginProviders: LoginProvider[] }) => {
-    //             const providers = resJson.loginProviders.map((x) => {
-    //                 if (typeof x.displayName !== "string") {
-    //                     const displayNameLocale = Object.keys(x.displayName)[0];
-    //                     x.displayName = x.displayName[displayNameLocale] || "";
-    //                 }
-    //                 return x;
-    //             });
-    //             setLoginProviders(providers);
-    //         })
-    //         .catch((err) => console.error("Failed to fetch login providers:", err));
-    // }, []);
+    useEffect(() => {
+        fetch(prefixBaseApiPath(`/auth/getLoginProviders`))
+            .then((res) => res.json())
+            .then((resJson: { loginProviders: LoginProvider[] }) => {
+                const providers = resJson.loginProviders.map((x) => {
+                    if (typeof x.displayName !== "string") {
+                        const displayNameLocale = Object.keys(x.displayName)[0];
+                        x.displayName = x.displayName[displayNameLocale] || "";
+                    }
+                    return x;
+                });
+                setLoginProviders(providers);
+            })
+            .catch((err) => console.error("Failed to fetch login providers:", err));
+    }, []);
 
     return (
         <div className="mt-1 w-full">
@@ -43,10 +43,9 @@ export default function LoginProviders() {
                         href={prefixBaseApiPath(
                             `/auth/getLoginProviderRedirect/${x.id}?redirect_uri=${prefixBasePath("/")}`
                         )}
+                        className="block w-full py-2 rounded-md text-lg bg-black text-white font-semibold text-center hover:bg-gray-950 transition cursor-pointer"
                     >
-                        <button className="w-full py-2 rounded-md text-lg bg-black text-white font-semibold hover:bg-gray-950 transition cursor-pointer">
-                            {x.displayName}
-                        </button>
+                        {x.displayName}
                     </a>
                 </div>
             ))}
