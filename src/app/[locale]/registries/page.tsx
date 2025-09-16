@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
-import { UpdateRegistryForm, Pagination } from "@/components";
+import { UpdateRegistryForm, Pagination, AuthUtil } from "@/components";
+import { useLocale } from "next-intl";
 
 export interface Registry {
     name: string;
@@ -29,6 +30,9 @@ const myRegistries: Registry[] = [
 ];
 
 export default function RegistriesPage() {
+    const lang = useLocale();
+    AuthUtil({ failedRedirectUrl: `/${lang}/login` });
+
     const [openForm, setOpenForm] = useState(false);
     const [selectedRegistry, setSelectedRegistry] = useState<Registry | null>(null);
 

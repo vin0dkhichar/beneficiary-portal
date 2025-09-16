@@ -2,11 +2,15 @@
 import Image from "next/image";
 import { Suspense } from "react";
 import Link from "next/link";
-import { Loading } from "@/components";
+import { AuthUtil, Loading } from "@/components";
 import { prefixBasePath } from "@/utils/path";
+import { useLocale } from "next-intl";
 
 
 export default function AccountsDeletePage() {
+    const lang = useLocale();
+    AuthUtil({ failedRedirectUrl: `/${lang}/login` });
+    
     return (
         <div className="flex flex-row bg-white min-h-screen">
             <div className="2xl:h-screen bg-gray-100 basis-1/2 flex items-center justify-center">

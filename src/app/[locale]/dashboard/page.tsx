@@ -7,6 +7,7 @@ import { AuthUtil } from "@/components/Auth";
 import { prefixBasePath } from "@/utils/path";
 
 import { benefitsData } from "@/utils/benefits";
+import { useLocale } from "next-intl";
 
 
 const previewRegistries = [
@@ -17,7 +18,8 @@ const previewRegistries = [
 
 export default function Dashboard() {
 
-    // AuthUtil({failedRedirectUrl: `/login`});
+    const lang = useLocale();
+    AuthUtil({ failedRedirectUrl: `/${lang}/login` });
 
     const totalAwaitedFunds = benefitsData.reduce(
         (sum, b) => sum + b.awaitedFunds,

@@ -16,5 +16,23 @@
         "resetPassword": "I-reset ang Password?",
         "login": "MAG-LOGIN",
         "loginWithNationalID": "MAG-LOGIN GAMIT ANG NATIONAL ID"
+    },
+    "profileDropdown": {
+        "myProfile": "Aking Profile",
+        "logout": "Mag-logout"
+    },
+    "profilePage": {
+        "title": "Aking Profile",
+        "personalInfo": "Personal na Impormasyon",
+        "givenName": "Pangalan",
+        "additionalName": "Karagdagang Pangalan",
+        "familyName": "Apelyido",
+        "contactInfo": "Impormasyon sa Pakikipag-ugnayan",
+        "email": "Email",
+        "phone": "Telepono",
+        "demographics": "Mga Detalyeng Demograpiko",
+        "gender": "Kasarian",
+        "birthdate": "Araw ng Kapanganakan",
+        "home": "Home"
     }
 }

@@ -1,8 +1,13 @@
 "use client";
 
+import { AuthUtil } from "@/components";
+import { useLocale } from "next-intl";
 import { useState } from "react";
 
 export default function SchemePage() {
+    const lang = useLocale();
+    AuthUtil({ failedRedirectUrl: `/${lang}/login` });
+    
     const [formData, setFormData] = useState({
         name: "",
         email: "",

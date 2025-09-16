@@ -1,10 +1,13 @@
 "use client";
 import { Suspense } from "react";
 import Image from "next/image";
-import { Loading, UpdateFaBox } from "@/components";
+import { AuthUtil, Loading, UpdateFaBox } from "@/components";
 import { prefixBasePath } from "@/utils/path";
+import { useLocale } from "next-intl";
 
 export default function AccountsUpdatePage() {
+    const lang = useLocale();
+    AuthUtil({ failedRedirectUrl: `/${lang}/login` });
     return (
         <div className="flex flex-row bg-white min-h-screen">
             <div className="2xl:h-screen bg-gray-100 basis-1/2 flex items-center justify-center">

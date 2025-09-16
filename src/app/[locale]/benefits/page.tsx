@@ -1,9 +1,13 @@
 "use client";
 import { useState } from "react";
 import { benefitsData, Benefit, getTotalAwaitedFunds, getTotalReceivedFunds } from "@/utils/benefits";
-import { Pagination, TransferHistory } from "@/components";
+import { AuthUtil, Pagination, TransferHistory } from "@/components";
+import { useLocale } from "next-intl";
 
 export default function BenefitsPage() {
+    const lang = useLocale();
+    AuthUtil({ failedRedirectUrl: `/${lang}/login` });
+    
     const [selectedBenefit, setSelectedBenefit] = useState<Benefit | null>(null);
     const [showTransferHistory, setShowTransferHistory] = useState(false);
 

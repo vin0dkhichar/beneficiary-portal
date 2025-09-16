@@ -3,13 +3,16 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { Suspense } from "react";
 import Link from "next/link";
-import { Loading } from "@/components";
+import { AuthUtil, Loading } from "@/components";
 import { prefixBasePath } from "@/utils/path";
+import { useLocale } from "next-intl";
 
 
 export default function AccountsStatusPage() {
-    const router = useRouter();
+    const lang = useLocale();
+    AuthUtil({ failedRedirectUrl: `/${lang}/login` });
 
+    const router = useRouter();
     return (
         <div className="flex flex-row bg-white">
             <div className="2xl:h-screen bg-gray-100 basis-1/2 flex items-center justify-center">
