@@ -7,7 +7,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { prefixBasePath } from "@/utils/path";
 import { getSupportedLocales } from "@/utils/lang";
 
-export default function LanguageDropDown() {
+export default function LanguageDropdown() {
     const [open, setOpen] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -36,7 +36,7 @@ export default function LanguageDropDown() {
         <div ref={dropdownRef} className="relative inline-block text-left">
             <button
                 onClick={() => setOpen(!open)}
-                className="flex items-center gap-2 px-3 py-1 bg-[#D9D9D9] border border-gray-300 rounded-md text-sm font-medium text-gray-800 transition w-full"
+                className="flex items-center gap-2 px-3 py-1 bg-[#D9D9D9] text-sm font-medium text-gray-800 transition w-full"
             >
                 <Image
                     src={prefixBasePath(`/flag_${currentLocale}.png`)}

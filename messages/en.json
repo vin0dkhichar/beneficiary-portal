@@ -16,5 +16,23 @@
         "resetPassword": "Reset Password?",
         "login": "LOGIN",
         "loginWithNationalID": "LOGIN WITH NATIONAL ID"
+    },
+    "profileDropdown": {
+        "myProfile": "My Profile",
+        "logout": "Log out"
+    },
+    "profilePage": {
+        "title": "My Profile",
+        "personalInfo": "Personal Information",
+        "givenName": "Given Name",
+        "additionalName": "Additional Name",
+        "familyName": "Family Name",
+        "contactInfo": "Contact Information",
+        "email": "Email",
+        "phone": "Phone",
+        "demographics": "Demographic Details",
+        "gender": "Gender",
+        "birthdate": "Birthdate",
+        "home": "Home"
     }
 }

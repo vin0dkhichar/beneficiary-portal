@@ -16,5 +16,23 @@
         "resetPassword": "Réinitialiser le mot de passe ?",
         "login": "CONNEXION",
         "loginWithNationalID": "SE CONNECTER AVEC NUMÉRO NATIONAL"
+    },
+    "profileDropdown": {
+        "myProfile": "Mon profil",
+        "logout": "Se déconnecter"
+    },
+    "profilePage": {
+        "title": "Mon profil",
+        "personalInfo": "Informations personnelles",
+        "givenName": "Prénom",
+        "additionalName": "Deuxième prénom",
+        "familyName": "Nom de famille",
+        "contactInfo": "Informations de contact",
+        "email": "Email",
+        "phone": "Téléphone",
+        "demographics": "Détails démographiques",
+        "gender": "Sexe",
+        "birthdate": "Date de naissance",
+        "home": "Accueil"
     }
 }

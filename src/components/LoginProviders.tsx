@@ -11,12 +11,6 @@ type LoginProvider = {
 };
 
 export default function LoginProviders() {
-    // const loginProviders = [
-    //     {
-    //         id: 1,
-    //         displayName: "LOGIN WITH NATIONAL ID",
-    //     },
-    // ];
     const [loginProviders, setLoginProviders] = useState<LoginProvider[]>([]);
 
     useEffect(() => {
