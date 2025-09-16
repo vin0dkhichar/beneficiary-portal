@@ -4,6 +4,8 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
+import { prefixBasePath } from "@/utils/path";
+
 
 export default function HomePage() {
     const router = useRouter();
@@ -28,7 +30,7 @@ export default function HomePage() {
         <main className="flex flex-col items-center justify-center min-h-screen p-6 bg-white">
             <div className="flex flex-col items-center text-center">
                 <Image
-                    src="/logo.png"
+                    src={prefixBasePath("/logo.png")}
                     alt="Logo Image"
                     width={100}
                     height={100}
